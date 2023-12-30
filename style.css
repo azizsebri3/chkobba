@@ -1,0 +1,231 @@
+.bodyhome {
+  background-image: url('https://www.color-meanings.com/wp-content/uploads/Black-and-white-paint-swirl-1024x683.jpeg');
+  background-repeat: no-repeat;
+  /* background-size: 200%; */
+  background-size: cover;
+  background-position: center;
+}
+.imgHome {
+  text-align: center;
+}
+input {
+  width: 50%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border-radius: 20px;
+}
+
+.imgHome .btnHome {
+  position: absolute;
+  top: 88%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+  appearance: button;
+  background-color: #000;
+  background-image: none;
+  border: 1px solid #000;
+  border-radius: 4px;
+  box-shadow: #fff 4px 4px 0 0, #000 4px 4px 0 1px;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 50px;
+  font-weight: 400;
+
+  overflow: visible;
+  padding: 12px 24px;
+  text-align: center;
+  text-transform: none;
+  touch-action: manipulation;
+  user-select: none;
+  -webkit-user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+.btnHome:focus {
+  text-decoration: none;
+}
+
+.btnHome:hover {
+  text-decoration: none;
+}
+
+.btnHome:active {
+  box-shadow: rgba(0, 0, 0, 0.125) 0 3px 5px inset;
+  outline: 0;
+}
+
+.btnHome:not([disabled]):active {
+  box-shadow: #fff 2px 2px 0 0, #000 2px 2px 0 1px;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}
+
+@media (min-width: 768px) {
+  .btnHome {
+    padding: 12px 50px;
+  }
+}
+
+.h11111 {
+  color: white;
+  margin-right: 10%;
+  margin-bottom: 50%;
+}
+.h11111 span {
+  color: red;
+}
+
+/***********/
+
+.bodyplay {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url('https://cdn-gcp.tlmq.fr/gaming_intelligence_provider/tarots/covers/tarot-chkobba.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.ijalena {
+  width: 640px;
+  height: 640px;
+  display: grid;
+  gap: 20px;
+  padding: 10px;
+  border: 1px solid black;
+  grid-template-columns: repeat(4, 1fr);
+  /* this to make it 3d* */
+  perspective: 1000px;
+}
+
+.card {
+  border-radius: 10px;
+  box-shadow: 1px 1px 10px black;
+  transform-style: preserve-3d;
+  position: relative;
+  cursor: pointer;
+}
+
+.front,
+.back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  /** to hide the back font when the card turn***/
+  backface-visibility: hidden;
+}
+
+.card:active {
+  transform: scale(0.95);
+  transition: all 0.2s;
+}
+
+.card.stylee {
+  transform: rotateY(180deg);
+}
+
+.front {
+  /*** this style to show the image hiden ****/
+  transform: rotateY(180deg);
+}
+
+.popup {
+  width: 350px;
+  height: 280px;
+  padding: 30px 20px;
+  background: #154a12;
+  border-radius: 10px;
+  box-sizing: border-box;
+  z-index: 2;
+  text-align: center;
+  opacity: 0;
+  top: -200%;
+  left: 50%; /* Center horizontally */
+  transform: translateX(-50%) translateY(-50%) scale(0.5); /* Center vertically and scale */
+  transition: opacity 300ms ease-in-out,
+              top 1000ms ease-in-out,
+              transform 1000ms ease-in-out;
+}
+
+.popup.active {
+  opacity: 1;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%) scale(1);
+  transition: transform 300ms cubic-bezier(0.18, 0.89, 0.43, 1.19);
+}
+
+.popup.icon {
+  margin:5px 0px;
+  width:50px;
+  height:50px;
+  border:2px solid #34f234;
+  text-align:center;
+  display:inline-block;
+  border-radius:50%;
+  line-height:60px;
+}
+.popup.icon i.fa {
+  font-size:30px;
+  color:#34f234;
+} 
+.popup.title {
+  margin:5px 0px;
+  font-size:30px;
+  font-weight:600;
+}
+.popup.description {
+  color:#222;
+  font-size:15px;
+  padding:5px;
+}
+.popup.dismiss-btn {
+  margin-top:15px;
+}
+.popup.dismiss-btn button {
+  padding:10px 20px;
+  background:#111;
+  color:#f5f5f5;
+  border:2px solid #111;
+  font-size:16px;
+  font-weight:600;
+  outline:none;
+  border-radius:10px;
+  cursor:pointer;
+  transition: all 300ms ease-in-out;
+}
+.popup.dismiss-btn button:hover {
+  color:#111;
+  background:#f5f5f5;
+}
+.popup > div {
+  position:relative;
+  top:10px;
+  opacity:0;
+}
+.popup.active > div {
+  top:0px;
+  opacity:1;
+}
+.popup.active .icon {
+  transition: all 300ms ease-in-out 250ms;
+}
+.popup.active.title {
+  transition: all 300ms ease-in-out 300ms;
+}
+.popup.active.description {
+  transition: all 300ms ease-in-out 350ms;
+}
+.popup.active.dismiss-btn {
+  transition: all 300ms ease-in-out 400ms;
+
+}
+
+
+
+
+
