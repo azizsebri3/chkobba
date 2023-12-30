@@ -10,9 +10,13 @@ $('#btnhome').on('click', function () {
     stored();
   }
 });
+
 function stored() {
   var playername = document.getElementById('nameplay').value;
   localStorage.setItem('textvalue', playername);
+  var total=document.getElementById("total")
+
+total.innerHTML = parseInt(count);
   return false;
 }
 document.getElementById('result').innerHTML = localStorage.getItem('textvalue');
@@ -21,7 +25,30 @@ function MakePlaye(name,score){
   return {name,score}
 }
 
+function handleExit() {
+  var elem = document.getElementById('dismiss-popup-btn');
+  elem.addEventListener('click', function() {
+    // Additional actions or checks before navigating to 'home.html'
+    console.log("Button clicked!");
+    localStorage.clear();
+    window.location.href = 'home.html';
+  });
+}
 
+handleExit()
+
+function handlePlayAgain() {
+  var elem = document.getElementById('pg-popup-btn');
+  elem.addEventListener('click', function() {
+    // Additional actions or checks before navigating to 'home.html'
+    console.log("Button pg clicked!");
+    window.location.href = 'play.html';
+    document.getElementsByClassName("popup")[0].classList.remove("active");
+
+
+  });
+}
+handlePlayAgain()
 
 
 var allCards = [
@@ -123,7 +150,7 @@ function handleClicked() {
     firstCard = null;
     secondCard = null;
     score++;
-    if (score === 6) gamewin();
+    if (score === 1) gamewin();
     //// if if he doesnt matching it will remove it the clase stylee because i already give it in css to rotate mean turn then i will make it the two variable  empty also to can fill them with other card 
     /// i mean when the card he dosent match the other card when i clicked it will turn back or it hide again
   } else if (img1 && img2) {
@@ -141,12 +168,17 @@ function handleClicked() {
 
 
 ///////// this function to increment the score every time you play
-var count = 0;
+var count = localStorage.getItem('count') || 0;
+
 var total=document.getElementById("total")
+
+total.innerHTML = parseInt(count);
+
 function gamewin() {
   setTimeout(() => {
-    count++;
-    total.innerHTML = count;
+    count = parseInt(count) + 1;
+    localStorage.setItem('count', count);
+    total.innerHTML = parseInt(count); // Update the total in the HTML
     youWin(); // Call youWin() directly when the game is won
   }, 1000);
 }
